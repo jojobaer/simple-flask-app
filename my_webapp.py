@@ -22,11 +22,15 @@ logger.addHandler(fh)
 
 @flask_app.route('/')
 def homepage():
-    return "Hello Summer"
+    return "Hello Summer 2019!"
+
+@flask_app.route("/<name>")
+def hello_someone(name):
+    return render_template("hello.html",
+    name=name.title())
 
 
 logger.info('STARTING APP, TRY IT OUT!!!')
 
 if __name__ == '__main__':
     flask_app.run(debug=True, use_reloader=True)
-
